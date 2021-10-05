@@ -9,10 +9,13 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = {
   entry: "./src/client/index.js",
   mode: "production",
+  optimization: {
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
+  },
   output: {
     path: path.resolve(process.cwd(), "dist"),
     libraryTarget: "var",
-    library: "News",
+    library: "Client",
   },
   module: {
     rules: [
