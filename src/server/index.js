@@ -1,6 +1,5 @@
 const dotenv = require("dotenv");
 dotenv.config();
-const key = process.env.API_KEY;
 
 var path = require("path");
 const express = require("express");
@@ -13,6 +12,7 @@ app.use(bodyParser.json());
 
 const cors = require("cors");
 app.use(cors());
+
 app.use(express.static("dist"));
 
 console.log(__dirname);
@@ -32,15 +32,16 @@ app.get("/test", function (req, res) {
 });
 
 app.post("/clientInput", async (req, res) => {
-  const clientUrl = req.body.url;
-  const urlOutput = await fetch(
-    `https://api.meaningcloud.com/sentiment-2.1?key=${key}&url=${clientURL}&lang=en`
+  const apiURL = "https://api.meaningcloud.com/sentiment-2.1?";
+  const api_key = process.env.API_KEY;
+  const response = await fetch(
+    `${apiURL}key=${api_key}&url=${req.body.formText}&lang=en`
   );
   try {
-    const data = await urlOutput.json();
+    const data = await response.json();
     console.log(data);
     res.send(data);
   } catch (error) {
-    console.log("error", error);
+    console.log("Invalid response", error);
   }
 });
