@@ -1,50 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Test</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Article Sentiment Analysis</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header>
-      <div class="">Logo</div>
-      <div class="">navigation</div>
-    </header>
+    <main class="container">
+      <h1>News Article Sentiment Analysis</h1>
+      <div class="grid">
+        <div class="contentbox">
+          <label for="name">Please enter the URL here</label>
+          <form class="" onsubmit="return Client.handleSubmit(event)">
+            <input
+              id="name"
+              type="text"
+              name="input"
+              value=""
+              placeholder="Example: https://hbr.org/2017/05/whats-your-data-strategy"
+            />
+            <button
+              class="btn-cta"
+              id="generate"
+              type="submit"
+              name=""
+              value="submit"
+              onclick="return Client.handleSubmit(event)"
+              onsubmit="return handleSubmit(event)"
+            >
+              Generate
+            </button>
+          </form>
+        </div>
+        <div class="contentbox">
+          <div class="title">Results of analysis:</div>
 
-    <main>
-      <section>
-        <form class="" onsubmit="return Client.handleSubmit(event)">
-          <input
-            id="name"
-            type="text"
-            name="input"
-            value=""
-            placeholder="Name"
-          />
-          <input
-            type="submit"
-            name=""
-            value="submit"
-            onclick="return Client.handleSubmit(event)"
-            onsubmit="return handleSubmit(event)"
-          />
-        </form>
-      </section>
-
-      <section>
-        <strong>Form Results:</strong>
-        <div id="results">Results:</div>
-        <div id="model">Model:</div>
-        <div id="score_tag">Score:</div>
-        <div id="agreement">Agreement:</div>
-        <div id="subjectivity">Subjectivity:</div>
-        <div id="confidence">Confidence:</div>
-        <div id="irony">Irony:</div>
-      </section>
+          <div id="score_tag">Score:</div>
+          <div id="agreement">Agreement:</div>
+          <div id="subjectivity">Subjectivity:</div>
+          <div id="confidence">Confidence:</div>
+          <div id="irony">Irony:</div>
+        </div>
+      </div>
     </main>
 
     <footer>
-      <p>This is a footer</p>
+      <p>&copy Copyright: Mark Goudie 2021</p>
     </footer>
     <script>
       if ("serviceWorker" in navigator) {
