@@ -17,15 +17,21 @@ function handleSubmit(event) {
     })
       .then((response) => response.json())
       .then(function (response) {
-        document.getElementById("score_tag").innerHTML =
-          "Score: " + response.score_tag;
-        document.getElementById("agreement").innerHTML =
-          "Agreement: " + response.agreement;
-        document.getElementById("subjectivity").innerHTML =
-          "Subjectivity: " + response.subjectivity;
-        document.getElementById("confidence").innerHTML =
-          "Confidence: " + response.confidence;
-        document.getElementById("irony").innerHTML = "Irony: " + response.irony;
+        document.getElementById(
+          "score_tag"
+        ).innerHTML = `Score: <span class = "results">${response.score_tag}</span>`;
+        document.getElementById(
+          "agreement"
+        ).innerHTML = `Agreement: <span class = "results">${response.agreement}</span>`;
+        document.getElementById(
+          "subjectivity"
+        ).innerHTML = `Subjectivity: <span class = "results">${response.subjectivity}</span>`;
+        document.getElementById(
+          "confidence"
+        ).innerHTML = `Confidence: <span class = "results">${response.confidence}</span>`;
+        document.getElementById(
+          "irony"
+        ).innerHTML = `Irony: <span class = "results">${response.irony}</span>`;
       });
   } else {
     alert("The URL is not generating a valid response, please try again.");
